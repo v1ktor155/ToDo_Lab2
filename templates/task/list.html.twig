@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<ul>
+    {% for task in tasks %}
+        <ul>
+            <div>
+                <a href="{{ path('app_task_view', { id: task.id }) }}">
+                {{ task.name }} <br> 
+                
+                 ID: {{ task.id }} {% if task.description %} <p>Description: {{task.description}}</p> {% else %} <p>Description: no description yet!</p> {% endif %}{% if task.result %}<p>Result: done</p>{% else %}<p>Result: not done yet</p>{% endif %}Date: {{ task.date|date('Y-m-d') }}</a>
+                <br>
+                
+                <a href="{{ path('app_task_update', { id: task.id }) }}" class="btn btn-primary">Update</a>
+                <a href="{{ path('app_task_delete',{id: task.id})}}" class="btn btn-primary">Delete</a>
+                <hr>
+            </div>
+        </ul>
+    {% endfor %}
+</ul>
+{% endblock %}

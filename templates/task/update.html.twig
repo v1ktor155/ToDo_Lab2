@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<p align=center><b>UPDATE YOUR TASK</b></p>
+<p align=center>If you want to change anything in this task, don't be shy, just do it! I'll save it right away!</p>
+
+<form action="{{ path('app_task_update', { id: task.id }) }}" method="post" align=center>
+    {{ form_start(task_form) }}
+
+    {{ form_row(task_form.name, { required: true }) }}
+    {{ form_row(task_form.description, { required: false, placeholder: '(optional)' }) }}
+    {{ form_row(task_form.result, { required: false, placeholder: '(optional)' }) }}
+    {{ form_row(task_form.date) }}
+    {{ form_row(task_form.category) }}
+
+    
+
+    {{ form_end(task_form) }}
+</form>
+
+{% endblock %}

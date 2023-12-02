@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <p>ID: {{task.id}}</p>
+        <p>Name: {{task.name}}</p>
+        {% if task.description %}
+            <p>Description: {{task.description}}</p>
+        {% else %}
+        <p>Description: no description yet!</p>
+        {% endif %}
+        {% if task.result %}
+            <p>Result: done</p>
+        {% else %}
+            <p>Result: not done yet</p>
+        {% endif %}
+        <p>Date: {{task.date|date('Y-m-d')}}</p>
+        <a href="/task/" class="btn btn-primary">Back to task page</a>
+    </div>
+{% endblock %}
